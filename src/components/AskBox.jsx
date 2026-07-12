@@ -6,10 +6,33 @@ function AskBox({ topic, context }) {
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [patientEmail, setPatientEmail] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  const handleContact = async () => {
+    if (!patientEmail.trim() || !patientEmail.includes("@")) return;
+
+    setSending(true);
+
+    try {
+      await fetch("/.netlify/functions/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ patientEmail, messages, topic }),
+      });
+      setSent(true);
+    } catch (err) {
+      console.log(err);
+    }
+
+    setSending(false);
+  };
 
   const handleAsk = async () => {
     if (!question.trim()) return;
@@ -47,6 +70,46 @@ function AskBox({ topic, context }) {
 
     setLoading(false);
   };
+
+  {
+    messages.length > 0 && !sent && (
+      <div className="askbox-contact">
+        {!showContactForm ? (
+          <button
+            className="askbox-contact-btn"
+            onClick={() => setShowContactForm(true)}
+          >
+            Contact the team about this
+          </button>
+        ) : (
+          <div className="askbox-contact-form">
+            <input
+              className="askbox-input"
+              type="email"
+              placeholder="Your email address"
+              value={patientEmail}
+              onChange={(e) => setPatientEmail(e.target.value)}
+            />
+            <button
+              className="askbox-btn"
+              onClick={handleContact}
+              disabled={sending}
+            >
+              {sending ? "Sending..." : "Send"}
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  {
+    sent && (
+      <p className="askbox-sent">
+        ✓ Sent! The team will reply to your email soon.
+      </p>
+    );
+  }
 
   return (
     <div className={`askbox-dock ${open ? "open" : ""}`}>

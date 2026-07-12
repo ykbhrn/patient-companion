@@ -286,6 +286,38 @@
   opacity: 0.6;
   cursor: default;
 }
+.askbox-contact {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--navy-light);
+}
+.askbox-contact-btn {
+  background: none;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.askbox-contact-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+.askbox-contact-form {
+  display: flex;
+  gap: 8px;
+}
+.askbox-sent {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--teal-light);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  color: var(--navy);
+  font-weight: 600;
+}
 
 /* ---- Responsive: narrow screens ---- */
 @media (max-width: 600px) {
