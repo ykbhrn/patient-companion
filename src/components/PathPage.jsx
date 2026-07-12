@@ -15,18 +15,20 @@ function PathPage() {
   }
 
   return (
-    <div>
+    <div className="page">
       <h2>{data.name}</h2>
-      <p>{data.tagline}</p>
+      <p className="tagline">{data.tagline}</p>
 
       {data.sections.map((section) => (
-        <div key={section.heading}>
+        <div key={section.heading} className="section">
           <h3>{section.heading}</h3>
           <p>{section.body}</p>
         </div>
       ))}
 
-      <Link to="/">Back to home</Link>
+      <Link to="/" className="back-link">
+        ← Back to home
+      </Link>
     </div>
   );
 }
