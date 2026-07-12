@@ -5,6 +5,7 @@ function AskBox({ topic, context }) {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -48,32 +49,40 @@ function AskBox({ topic, context }) {
   };
 
   return (
-    <div className="askbox">
-      <p className="askbox-label">Have a question about {topic}?</p>
+    <div className={`askbox-dock ${open ? "open" : ""}`}>
+      {open && (
+        <div className="askbox-panel">
+          <div className="askbox-panel-header">
+            <span className="askbox-label">Ask about {topic}</span>
+            <button className="askbox-close" onClick={() => setOpen(false)}>
+              ✕
+            </button>
+          </div>
 
-      {messages.length > 0 && (
-        <div className="askbox-conversation">
-          {messages.map((msg, index) => (
-            <p
-              key={index}
-              className={msg.role === "user" ? "askbox-user" : "askbox-answer"}
-            >
-              {msg.content}
-            </p>
-          ))}
+          <div className="askbox-conversation">
+            {messages.map((msg, index) => (
+              <p
+                key={index}
+                className={
+                  msg.role === "user" ? "askbox-user" : "askbox-answer"
+                }
+              >
+                {msg.content}
+              </p>
+            ))}
+            {loading && <p className="askbox-loading">Thinking…</p>}
+            <div ref={bottomRef} />
+          </div>
         </div>
       )}
-
-      {loading && <p className="askbox-loading">Thinking…</p>}
-
-      <div ref={bottomRef} />
 
       <div className="askbox-input-row">
         <input
           className="askbox-input"
           value={question}
+          onFocus={() => setOpen(true)}
           onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Ask here..."
+          placeholder={`Ask about ${topic}...`}
           onKeyDown={(e) => e.key === "Enter" && handleAsk()}
         />
         <button className="askbox-btn" onClick={handleAsk} disabled={loading}>

@@ -77,7 +77,7 @@
 .main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 12px 20px 60px;
+  padding: 12px 20px 120px; /* extra bottom padding for the docked bar */
 }
 
 /* ---- Content pages ---- */
@@ -173,23 +173,89 @@
   line-height: 1.5;
 }
 
-/* ---- Ask box ---- */
-.askbox {
-  margin-top: 32px;
-  padding: 22px;
+/* ---- Ask box (docked) ---- */
+.askbox-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   background: var(--teal-light);
-  border-radius: var(--radius);
-  border: 1px solid var(--teal);
+  border-top: 2px solid var(--teal);
+  padding: 14px 16px;
+  box-shadow: 0 -4px 20px rgba(19, 53, 88, 0.12);
 }
+
+.askbox-panel {
+  max-width: 720px;
+  margin: 0 auto 12px;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.askbox-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: var(--teal-light);
+  padding-bottom: 8px;
+}
+
 .askbox-label {
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: 12px;
+  font-size: 1rem;
 }
+
+.askbox-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 4px 8px;
+}
+
+.askbox-conversation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.askbox-user {
+  align-self: flex-end;
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 12px 12px 2px 12px;
+  max-width: 85%;
+}
+
+.askbox-answer {
+  align-self: flex-start;
+  background: var(--white);
+  padding: 12px 16px;
+  border-radius: 12px 12px 12px 2px;
+  border-left: 3px solid var(--teal);
+  max-width: 90%;
+  line-height: 1.6;
+}
+
+.askbox-loading {
+  color: var(--muted);
+  font-style: italic;
+}
+
 .askbox-input-row {
   display: flex;
   gap: 8px;
+  max-width: 720px;
+  margin: 0 auto;
 }
+
 .askbox-input {
   flex: 1;
   padding: 12px 14px;
@@ -202,6 +268,7 @@
   outline: none;
   border-color: var(--teal);
 }
+
 .askbox-btn {
   background: var(--navy);
   color: var(--white);
@@ -218,54 +285,4 @@
 .askbox-btn:disabled {
   opacity: 0.6;
   cursor: default;
-}
-.askbox-answer {
-  margin-top: 16px;
-  padding: 14px 16px;
-  background: var(--white);
-  border-radius: 8px;
-  border-left: 3px solid var(--teal);
-  line-height: 1.6;
-}
-.askbox {
-  margin-top: 32px;
-  margin-bottom: 24px;
-  padding: 24px;
-  background: var(--teal-light);
-  border-radius: var(--radius);
-  border: 2px solid var(--teal);
-}
-.askbox-label {
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 14px;
-  font-size: 1.05rem;
-}
-.askbox-conversation {
-  margin-bottom: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.askbox-user {
-  align-self: flex-end;
-  background: var(--navy);
-  color: var(--white);
-  padding: 10px 14px;
-  border-radius: 12px 12px 2px 12px;
-  max-width: 85%;
-}
-.askbox-answer {
-  align-self: flex-start;
-  background: var(--white);
-  padding: 12px 16px;
-  border-radius: 12px 12px 12px 2px;
-  border-left: 3px solid var(--teal);
-  max-width: 90%;
-  line-height: 1.6;
-}
-.askbox-loading {
-  color: var(--muted);
-  font-style: italic;
-  margin-bottom: 10px;
 }
