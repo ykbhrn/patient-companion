@@ -27,7 +27,7 @@ export const pathContent = {
       },
       {
         heading: "Finding us",
-        body: "We're at 28 Clapham Common South Side, London SW4 9BN. The practice is clean, bright and welcoming, with the latest technology. Opening hours are Monday to Friday 8am to 8pm and Saturday 9am to 5pm.",
+        body: "We're at 28 Clapham Common South Side, London SW4 9BN. The practice is clean, bright and welcoming, with the latest technology. Opening hours are Monday to Friday 8am to 8pm and Saturday 9am to 4:30pm.",
       },
       {
         heading: "Booking and questions",

@@ -71,46 +71,6 @@ function AskBox({ topic, context }) {
     setLoading(false);
   };
 
-  {
-    messages.length > 0 && !sent && (
-      <div className="askbox-contact">
-        {!showContactForm ? (
-          <button
-            className="askbox-contact-btn"
-            onClick={() => setShowContactForm(true)}
-          >
-            Contact the team about this
-          </button>
-        ) : (
-          <div className="askbox-contact-form">
-            <input
-              className="askbox-input"
-              type="email"
-              placeholder="Your email address"
-              value={patientEmail}
-              onChange={(e) => setPatientEmail(e.target.value)}
-            />
-            <button
-              className="askbox-btn"
-              onClick={handleContact}
-              disabled={sending}
-            >
-              {sending ? "Sending..." : "Send"}
-            </button>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  {
-    sent && (
-      <p className="askbox-sent">
-        ✓ Sent! The team will reply to your email soon.
-      </p>
-    );
-  }
-
   return (
     <div className={`askbox-dock ${open ? "open" : ""}`}>
       {open && (
@@ -134,8 +94,45 @@ function AskBox({ topic, context }) {
               </p>
             ))}
             {loading && <p className="askbox-loading">Thinking…</p>}
-            <div ref={bottomRef} />
           </div>
+
+          {messages.length > 0 && !sent && (
+            <div className="askbox-contact">
+              {!showContactForm ? (
+                <button
+                  className="askbox-contact-btn"
+                  onClick={() => setShowContactForm(true)}
+                >
+                  Contact the team about this
+                </button>
+              ) : (
+                <div className="askbox-contact-form">
+                  <input
+                    className="askbox-input"
+                    type="email"
+                    placeholder="Your email address"
+                    value={patientEmail}
+                    onChange={(e) => setPatientEmail(e.target.value)}
+                  />
+                  <button
+                    className="askbox-btn"
+                    onClick={handleContact}
+                    disabled={sending}
+                  >
+                    {sending ? "Sending..." : "Send"}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {sent && (
+            <p className="askbox-sent">
+              ✓ Sent! The team will reply to your email soon.
+            </p>
+          )}
+
+          <div ref={bottomRef} />
         </div>
       )}
 
