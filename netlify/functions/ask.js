@@ -41,18 +41,19 @@ Guards/Splints: soft/sport £250; dual laminate £300; Michigan/Tanner £815.`;
 
 export default async (req) => {
   try {
-    const { question, context } = await req.json();
+    const { messages, context } = await req.json();
 
-    const userMessage = `Practice information for context:
-${context || "No specific context provided."}
+    // Put the practice context into the system prompt so it applies across the whole conversation
+    const systemWithContext = `${SYSTEM_PROMPT}
 
-Patient's question: ${question}`;
+Information about what the patient is currently viewing:
+${context || "No specific context provided."}`;
 
     const response = await anthropic.messages.create({
       model: "claude-haiku-4-5-20251001",
       max_tokens: 300,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: "user", content: userMessage }],
+      system: systemWithContext,
+      messages: messages,
     });
 
     const answer = response.content[0].text;
