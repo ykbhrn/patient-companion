@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { treatments } from "../treatments";
+import AskBox from "./AskBox";
 
 function Treatment() {
   const { treatment } = useParams();
@@ -17,6 +18,11 @@ function Treatment() {
             <p>{section.body}</p>
           </div>
         ))}
+
+        <AskBox
+          topic={data.name}
+          context={`${data.name}: ${data.tagline} ${data.sections.map((s) => s.heading + " - " + s.body).join(" ")}`}
+        />
 
         <Link to="/treatments" className="back-link">
           ← Back to treatments
