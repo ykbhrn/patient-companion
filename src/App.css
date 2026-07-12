@@ -286,3 +286,28 @@
   opacity: 0.6;
   cursor: default;
 }
+
+/* ---- Responsive: narrow screens ---- */
+@media (max-width: 600px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+    min-height: unset;
+  }
+  .logo {
+    position: static;
+    transform: none;
+    height: 48px;
+  }
+  .header-text {
+    text-align: center;
+  }
+  .brand {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+  }
+  .brand-sub {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+}
