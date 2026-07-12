@@ -106,22 +106,30 @@ function AskBox({ topic, context }) {
                   Contact the team about this
                 </button>
               ) : (
-                <div className="askbox-contact-form">
-                  <input
-                    className="askbox-input"
-                    type="email"
-                    placeholder="Your email address"
-                    value={patientEmail}
-                    onChange={(e) => setPatientEmail(e.target.value)}
-                  />
+                <>
+                  <div className="askbox-contact-form">
+                    <input
+                      className="askbox-input"
+                      type="email"
+                      placeholder="Your email address"
+                      value={patientEmail}
+                      onChange={(e) => setPatientEmail(e.target.value)}
+                    />
+                    <button
+                      className="askbox-btn"
+                      onClick={handleContact}
+                      disabled={sending}
+                    >
+                      {sending ? "Sending..." : "Send"}
+                    </button>
+                  </div>
                   <button
-                    className="askbox-btn"
-                    onClick={handleContact}
-                    disabled={sending}
+                    className="askbox-contact-cancel"
+                    onClick={() => setShowContactForm(false)}
                   >
-                    {sending ? "Sending..." : "Send"}
+                    Cancel
                   </button>
-                </div>
+                </>
               )}
             </div>
           )}
@@ -136,19 +144,21 @@ function AskBox({ topic, context }) {
         </div>
       )}
 
-      <div className="askbox-input-row">
-        <input
-          className="askbox-input"
-          value={question}
-          onFocus={() => setOpen(true)}
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder={`Ask about ${topic}...`}
-          onKeyDown={(e) => e.key === "Enter" && handleAsk()}
-        />
-        <button className="askbox-btn" onClick={handleAsk} disabled={loading}>
-          {loading ? "..." : "Ask"}
-        </button>
-      </div>
+      {!showContactForm && (
+        <div className="askbox-input-row">
+          <input
+            className="askbox-input"
+            value={question}
+            onFocus={() => setOpen(true)}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder={`Ask about ${topic}...`}
+            onKeyDown={(e) => e.key === "Enter" && handleAsk()}
+          />
+          <button className="askbox-btn" onClick={handleAsk} disabled={loading}>
+            {loading ? "..." : "Ask"}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
