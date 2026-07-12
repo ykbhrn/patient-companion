@@ -1,9 +1,15 @@
 import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function AskBox({ topic, context }) {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, loading]);
 
   const handleAsk = async () => {
     if (!question.trim()) return;
@@ -60,6 +66,8 @@ function AskBox({ topic, context }) {
       )}
 
       {loading && <p className="askbox-loading">Thinking…</p>}
+
+      <div ref={bottomRef} />
 
       <div className="askbox-input-row">
         <input
