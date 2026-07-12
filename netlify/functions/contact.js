@@ -17,7 +17,7 @@ export default async (req) => {
     const result = await resend.emails.send({
       from: "Patient Companion <onboarding@resend.dev>",
       to: "jakub.horun@mail.com",
-      reply_to: patientEmail,
+      replyTo: patientEmail,
       subject: `Patient enquiry: ${topic}`,
       text: `A patient has a question via the Patient Companion app.
 
