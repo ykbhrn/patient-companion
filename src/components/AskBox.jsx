@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useState, useRef, useEffect } from "react";
 
 function AskBox({ topic, context }) {
