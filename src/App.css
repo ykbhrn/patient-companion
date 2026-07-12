@@ -357,20 +357,24 @@
   }
 
   .askbox-dock {
-    padding: 10px 12px;
-  }
-  .askbox-panel {
-    max-height: 45vh;
+    padding: 10px 14px;
   }
   .askbox-input-row {
     gap: 6px;
+    max-width: 100%;
   }
   .askbox-input {
+    min-width: 0; /* allows the input to shrink instead of overflowing */
     padding: 10px 12px;
     font-size: 0.95rem;
   }
   .askbox-btn {
-    padding: 10px 16px;
+    padding: 10px 14px;
     font-size: 0.95rem;
+    white-space: nowrap; /* keep "Ask"/"Send" on one line */
+    flex-shrink: 0; /* button keeps its size, input shrinks instead */
+  }
+  .askbox-panel {
+    max-height: 30vh;
   }
 }
