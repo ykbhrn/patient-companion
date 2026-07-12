@@ -172,3 +172,72 @@
   font-size: 0.9rem;
   line-height: 1.5;
 }
+
+/* ---- Ask box ---- */
+.askbox {
+  margin-top: 32px;
+  padding: 22px;
+  background: var(--teal-light);
+  border-radius: var(--radius);
+  border: 1px solid var(--teal);
+}
+.askbox-label {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.askbox-input-row {
+  display: flex;
+  gap: 8px;
+}
+.askbox-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--navy-light);
+  border-radius: 8px;
+  font-family: var(--font);
+  font-size: 1rem;
+}
+.askbox-input:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+.askbox-btn {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+.askbox-btn:hover:not(:disabled) {
+  background: var(--teal);
+}
+.askbox-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.askbox-answer {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--white);
+  border-radius: 8px;
+  border-left: 3px solid var(--teal);
+  line-height: 1.6;
+}
+.askbox {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  padding: 24px;
+  background: var(--teal-light);
+  border-radius: var(--radius);
+  border: 2px solid var(--teal);
+}
+.askbox-label {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
