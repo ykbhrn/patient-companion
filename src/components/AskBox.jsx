@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 function AskBox({ topic, context }) {
   const [question, setQuestion] = useState("");
@@ -21,7 +22,8 @@ function AskBox({ topic, context }) {
 
     const handleViewportChange = () => {
       const vv = window.visualViewport;
-      const offset = window.innerHeight - vv.height - vv.offsetTop;
+      const offset =
+        window.innerHeight - vv.height - vv.offsetTop + window.scrollY;
       dock.style.transform = offset > 0 ? `translateY(-${offset}px)` : "none";
     };
 
@@ -90,95 +92,102 @@ function AskBox({ topic, context }) {
     setLoading(false);
   };
 
-  return (
+  return createPortal(
     <div className={`askbox-dock ${open ? "open" : ""}`}>
-      {open && (
-        <div className="askbox-panel">
-          <div className="askbox-panel-header">
-            <span className="askbox-label">Ask about {topic}</span>
-            <button className="askbox-close" onClick={() => setOpen(false)}>
-              ✕
+      <div className={`askbox-dock ${open ? "open" : ""}`}>
+        {open && (
+          <div className="askbox-panel">
+            <div className="askbox-panel-header">
+              <span className="askbox-label">Ask about {topic}</span>
+              <button className="askbox-close" onClick={() => setOpen(false)}>
+                ✕
+              </button>
+            </div>
+
+            <div className="askbox-conversation">
+              {messages.map((msg, index) => (
+                <p
+                  key={index}
+                  className={
+                    msg.role === "user" ? "askbox-user" : "askbox-answer"
+                  }
+                >
+                  {msg.content}
+                </p>
+              ))}
+              {loading && <p className="askbox-loading">Thinking…</p>}
+            </div>
+
+            {messages.length > 0 && !sent && (
+              <div className="askbox-contact">
+                {!showContactForm ? (
+                  <button
+                    className="askbox-contact-btn"
+                    onClick={() => setShowContactForm(true)}
+                  >
+                    Contact the team about this
+                  </button>
+                ) : (
+                  <>
+                    <div className="askbox-contact-form">
+                      <input
+                        className="askbox-input"
+                        type="email"
+                        placeholder="Your email address"
+                        value={patientEmail}
+                        onChange={(e) => setPatientEmail(e.target.value)}
+                      />
+                      <button
+                        className="askbox-btn"
+                        onClick={handleContact}
+                        disabled={sending}
+                      >
+                        {sending ? "Sending..." : "Send"}
+                      </button>
+                    </div>
+                    <button
+                      className="askbox-contact-cancel"
+                      onClick={() => setShowContactForm(false)}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+
+            {sent && (
+              <p className="askbox-sent">
+                ✓ Sent! The team will reply to your email soon.
+              </p>
+            )}
+
+            <div ref={bottomRef} />
+          </div>
+        )}
+
+        {!showContactForm && (
+          <div className="askbox-input-row">
+            <input
+              className="askbox-input"
+              value={question}
+              onFocus={() => setOpen(true)}
+              onChange={(e) => setQuestion(e.target.value)}
+              placeholder={`Ask about ${topic}...`}
+              onKeyDown={(e) => e.key === "Enter" && handleAsk()}
+            />
+            <button
+              className="askbox-btn"
+              onClick={handleAsk}
+              disabled={loading}
+            >
+              {loading ? "..." : "Ask"}
             </button>
           </div>
-
-          <div className="askbox-conversation">
-            {messages.map((msg, index) => (
-              <p
-                key={index}
-                className={
-                  msg.role === "user" ? "askbox-user" : "askbox-answer"
-                }
-              >
-                {msg.content}
-              </p>
-            ))}
-            {loading && <p className="askbox-loading">Thinking…</p>}
-          </div>
-
-          {messages.length > 0 && !sent && (
-            <div className="askbox-contact">
-              {!showContactForm ? (
-                <button
-                  className="askbox-contact-btn"
-                  onClick={() => setShowContactForm(true)}
-                >
-                  Contact the team about this
-                </button>
-              ) : (
-                <>
-                  <div className="askbox-contact-form">
-                    <input
-                      className="askbox-input"
-                      type="email"
-                      placeholder="Your email address"
-                      value={patientEmail}
-                      onChange={(e) => setPatientEmail(e.target.value)}
-                    />
-                    <button
-                      className="askbox-btn"
-                      onClick={handleContact}
-                      disabled={sending}
-                    >
-                      {sending ? "Sending..." : "Send"}
-                    </button>
-                  </div>
-                  <button
-                    className="askbox-contact-cancel"
-                    onClick={() => setShowContactForm(false)}
-                  >
-                    Cancel
-                  </button>
-                </>
-              )}
-            </div>
-          )}
-
-          {sent && (
-            <p className="askbox-sent">
-              ✓ Sent! The team will reply to your email soon.
-            </p>
-          )}
-
-          <div ref={bottomRef} />
-        </div>
-      )}
-
-      {!showContactForm && (
-        <div className="askbox-input-row">
-          <input
-            className="askbox-input"
-            value={question}
-            onFocus={() => setOpen(true)}
-            onChange={(e) => setQuestion(e.target.value)}
-            placeholder={`Ask about ${topic}...`}
-            onKeyDown={(e) => e.key === "Enter" && handleAsk()}
-          />
-          <button className="askbox-btn" onClick={handleAsk} disabled={loading}>
-            {loading ? "..." : "Ask"}
-          </button>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </div>,
+    document.body,
   );
 }
 
