@@ -61,6 +61,10 @@ export const pathContent = {
         body: "For patients who need a little more support, we offer reassuring sedation. Oral and intravenous sedation are safe, reliable ways to manage dental anxiety. You stay conscious throughout, but many patients remember very little of the appointment afterwards and find that time passes very quickly.",
       },
       {
+        heading: "Parking",
+        body: "We don't have our own parking at the practice. There is pay-and-display street parking on and around Clapham Common South Side, and some nearby car parks, though most have time limits. Please check the signage and restrictions wherever you park, and allow a little extra time to find a space. The practice is also well served by buses and is a short walk from Clapham Common station.",
+      },
+      {
         heading: "Talk to us",
         body: "The hardest step is often the first one. If you'd like to find out how we can help, call our friendly team on 020 7622 5333 or email reception@dentistsw4.com. We'll do everything we can to make you feel confident and comfortable.",
       },
