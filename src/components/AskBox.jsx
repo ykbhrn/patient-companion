@@ -1,7 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-function AskBox({ topic, context }) {
+function AskBox({
+  topic,
+  context,
+  suggestions = [
+    "How much does it cost?",
+    "Does it hurt?",
+    "How long does it take?",
+  ],
+}) {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -35,10 +43,11 @@ function AskBox({ topic, context }) {
     setSending(false);
   };
 
-  const handleAsk = async () => {
-    if (!question.trim()) return;
+  const handleAsk = async (presetQuestion) => {
+    const q = presetQuestion || question;
+    if (!q.trim()) return;
 
-    const newMessages = [...messages, { role: "user", content: question }];
+    const newMessages = [...messages, { role: "user", content: q }];
     setMessages(newMessages);
     setQuestion("");
     setLoading(true);
@@ -94,6 +103,20 @@ function AskBox({ topic, context }) {
             ))}
             {loading && <p className="askbox-loading">Thinking…</p>}
           </div>
+
+          {messages.length === 0 && !loading && (
+            <div className="askbox-suggestions">
+              {suggestions.map((s) => (
+                <button
+                  key={s}
+                  className="askbox-suggestion"
+                  onClick={() => handleAsk(s)}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
 
           {messages.length > 0 && !sent && (
             <div className="askbox-contact">
@@ -153,7 +176,11 @@ function AskBox({ topic, context }) {
             placeholder={`Ask about ${topic}...`}
             onKeyDown={(e) => e.key === "Enter" && handleAsk()}
           />
-          <button className="askbox-btn" onClick={handleAsk} disabled={loading}>
+          <button
+            className="askbox-btn"
+            onClick={() => handleAsk()}
+            disabled={loading}
+          >
             {loading ? "..." : "Ask"}
           </button>
         </div>

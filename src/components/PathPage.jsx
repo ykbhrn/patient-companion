@@ -32,6 +32,15 @@ function PathPage() {
         context={`${data.name}: ${data.tagline} ${data.sections
           .map((s) => s.heading + " - " + s.body)
           .join(" ")}`}
+        suggestions={
+          pathId === "nervous"
+            ? ["What if I panic?", "Can I have sedation?", "Can I visit first?"]
+            : [
+                "What should I bring?",
+                "Where do I park?",
+                "What happens first?",
+              ]
+        }
       />
 
       <Link to="/" className="back-link">
