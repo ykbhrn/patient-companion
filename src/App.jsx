@@ -4,6 +4,7 @@ import Treatment from "./components/Treatment";
 import Treatments from "./components/Treatments";
 import PathPage from "./components/PathPage";
 import logo from "./assets/CLDP-Logo.png";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -36,10 +37,7 @@ function App() {
 
       <main className="main">
         <Routes>
-          <Route
-            path="/"
-            element={<p>Choose an option above to get started.</p>}
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/treatments" element={<Treatments />} />
           <Route path="/treatments/:treatment" element={<Treatment />} />
           <Route path="/:pathId" element={<PathPage />} />

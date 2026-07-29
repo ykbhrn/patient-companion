@@ -73,6 +73,69 @@
   transform: translateY(-2px);
 }
 
+/* ---- Home page ---- */
+.home-welcome {
+  margin-bottom: 14px;
+}
+.home-intro {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+}
+.home-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.home-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--white);
+  border: 1px solid var(--navy-light);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 22px 52px 22px 24px;
+  box-shadow: var(--shadow);
+  transition: all 0.18s ease;
+}
+.home-card:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--navy);
+}
+.home-card-title {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.home-card-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.home-card-arrow {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--teal);
+  font-size: 1.3rem;
+}
+.home-hint {
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: var(--teal-light);
+  border-left: 3px solid var(--teal);
+  border-radius: 8px;
+  color: var(--navy);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.home-hint strong {
+  font-weight: 700;
+}
+
 /* ---- Main content ---- */
 .main {
   max-width: 720px;
