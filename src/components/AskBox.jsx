@@ -16,6 +16,26 @@ function AskBox({ topic, context }) {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
+  useEffect(() => {
+    const dock = document.querySelector(".askbox-dock");
+    if (!dock || !window.visualViewport) return;
+
+    const handleViewportChange = () => {
+      const vv = window.visualViewport;
+      const offset =
+        window.innerHeight - vv.height - vv.offsetTop + window.scrollY;
+      dock.style.transform = offset > 0 ? `translateY(-${offset}px)` : "none";
+    };
+
+    window.visualViewport.addEventListener("resize", handleViewportChange);
+    window.visualViewport.addEventListener("scroll", handleViewportChange);
+
+    return () => {
+      window.visualViewport.removeEventListener("resize", handleViewportChange);
+      window.visualViewport.removeEventListener("scroll", handleViewportChange);
+    };
+  }, []);
+
   const handleContact = async () => {
     if (!patientEmail.trim() || !patientEmail.includes("@")) return;
 
@@ -38,9 +58,10 @@ function AskBox({ topic, context }) {
   const handleAsk = async () => {
     if (!question.trim()) return;
 
+    // Add the patient's question to the conversation
     const newMessages = [...messages, { role: "user", content: question }];
     setMessages(newMessages);
-    setQuestion("");
+    setQuestion(""); // clear the input
     setLoading(true);
 
     try {
@@ -52,6 +73,7 @@ function AskBox({ topic, context }) {
 
       const data = await response.json();
 
+      // Add the AI's reply to the conversation
       setMessages([
         ...newMessages,
         { role: "assistant", content: data.answer },
