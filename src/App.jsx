@@ -5,6 +5,7 @@ import Treatments from "./components/Treatments";
 import PathPage from "./components/PathPage";
 import logo from "./assets/CLDP-Logo.png";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/:pathId" element={<PathPage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }

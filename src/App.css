@@ -136,6 +136,50 @@
   font-weight: 700;
 }
 
+/* ---- Footer ---- */
+.footer {
+  background: var(--navy);
+  color: var(--white);
+  padding: 40px 20px 140px;
+  margin-top: 40px;
+}
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+.footer-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.footer-heading {
+  color: var(--teal-bright);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.footer-block a {
+  color: var(--white);
+}
+.footer-block a:hover {
+  color: var(--teal-bright);
+}
+.footer-note {
+  max-width: 900px;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
 /* ---- Main content ---- */
 .main {
   max-width: 720px;
