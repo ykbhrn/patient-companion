@@ -39,3 +39,12 @@ ${conversationText}`,
     });
   }
 };
+
+export const config = {
+  path: "/.netlify/functions/contact",
+  rateLimit: {
+    windowLimit: 3,
+    windowSize: 60,
+    aggregateBy: ["ip", "domain"],
+  },
+};

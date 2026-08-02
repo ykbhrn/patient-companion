@@ -59,6 +59,19 @@ function AskBox({
         body: JSON.stringify({ messages: newMessages, context }),
       });
 
+      if (response.status === 429) {
+        setMessages([
+          ...newMessages,
+          {
+            role: "assistant",
+            content:
+              "You've asked a few questions in quick succession. Please wait a moment and try again, or call us on 020 7622 5333.",
+          },
+        ]);
+        setLoading(false);
+        return;
+      }
+
       const data = await response.json();
 
       setMessages([

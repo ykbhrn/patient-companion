@@ -104,3 +104,12 @@ ${context || "No specific context provided."}`;
     });
   }
 };
+
+export const config = {
+  path: "/.netlify/functions/ask",
+  rateLimit: {
+    windowLimit: 10,
+    windowSize: 60,
+    aggregateBy: ["ip", "domain"],
+  },
+};
