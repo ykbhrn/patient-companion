@@ -6,6 +6,7 @@ import PathPage from "./components/PathPage";
 import logo from "./assets/CLDP-Logo.png";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
       </nav>
 
       <main className="main">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/treatments" element={<Treatments />} />
