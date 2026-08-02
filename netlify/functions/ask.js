@@ -93,6 +93,16 @@ ${context || "No specific context provided."}`;
 
     const answer = response.content[0].text;
 
+    console.log(
+      JSON.stringify({
+        type: "question",
+        topic: context?.slice(0, 60),
+        question: messages[messages.length - 1]?.content,
+        answer: answer?.slice(0, 200),
+        turn: messages.length,
+      }),
+    );
+
     return new Response(JSON.stringify({ answer }), {
       headers: { "Content-Type": "application/json" },
     });
