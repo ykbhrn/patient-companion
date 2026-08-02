@@ -101,7 +101,13 @@ function AskBox({
                 {msg.content}
               </p>
             ))}
-            {loading && <p className="askbox-loading">Thinking…</p>}
+            {loading && (
+              <div className="askbox-typing">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            )}
           </div>
 
           {messages.length === 0 && !loading && (

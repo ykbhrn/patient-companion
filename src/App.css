@@ -184,7 +184,7 @@
 .main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 12px 20px 120px; /* extra bottom padding for the docked ask bar */
+  padding: 12px 20px 40px;
 }
 
 /* ---- Content pages ---- */
@@ -460,6 +460,42 @@
   border-radius: 6px;
   color: var(--navy);
   font-weight: 600;
+}
+.askbox-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 5px;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: 12px 12px 12px 2px;
+  border-left: 3px solid var(--teal);
+  width: fit-content;
+}
+.askbox-typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: typing 1.2s infinite;
+}
+.askbox-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.askbox-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
 }
 
 /* ---- Responsive: narrow screens ---- */
