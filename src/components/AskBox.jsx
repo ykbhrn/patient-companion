@@ -196,11 +196,18 @@ function AskBox({
             onKeyDown={(e) => e.key === "Enter" && handleAsk()}
           />
           <button
-            className="askbox-btn"
+            className="askbox-btn askbox-send"
             onClick={() => handleAsk()}
             disabled={loading}
           >
-            {loading ? "..." : "Ask"}
+            {loading ? (
+              "..."
+            ) : (
+              <>
+                <span className="btn-text">Ask</span>
+                <span className="btn-arrow">→</span>
+              </>
+            )}
           </button>
         </div>
       )}
