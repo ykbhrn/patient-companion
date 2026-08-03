@@ -11,7 +11,7 @@ export const pathContent = {
     sections: [
       {
         heading: "A warm welcome",
-        body: "Crescent Lodge has been part of the Clapham Common community for over 100 years and is one of the largest dental practices in London. Our friendly team looks after everyone from adults and children to nervous patients, and we work hard to make you feel comfortable from the moment you arrive. We are a fully private practice and do not provide NHS treatment.",
+        body: "Crescent Lodge has been part of the Clapham Common community for over 100 years and is one of the largest dental practices in London. Our friendly team looks after everyone from adults and children to nervous patients, and we work hard to make you feel comfortable from the moment you arrive.",
       },
       {
         heading: "Your first appointment",
