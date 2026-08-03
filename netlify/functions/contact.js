@@ -8,24 +8,21 @@ export default async (req) => {
 
     // Turn the conversation array into readable plain text
     const conversationText = messages
-      .map(
-        (msg) =>
-          `${msg.role === "user" ? "Patient" : "Assistant"}: ${msg.content}`,
+      .map((msg) =>
+        msg.role === "user"
+          ? `You asked: ${msg.content}`
+          : `Reply: ${msg.content}`,
       )
       .join("\n\n");
 
     const result = await resend.emails.send({
       from: "Patient Companion <onboarding@resend.dev>",
-      to: "jakub.horun@mail.com",
+      to: "reception@dentistsw4.com",
       replyTo: patientEmail,
       subject: `Patient enquiry: ${topic}`,
-      text: `A patient has a question via the Patient Companion app.
+      text: `From: ${patientEmail}
 
-Patient's email: ${patientEmail}
-Topic: ${topic}
-
-Conversation:
-${conversationText}`,
+      ${conversationText}`,
     });
 
     return new Response(JSON.stringify({ success: true, result }), {
