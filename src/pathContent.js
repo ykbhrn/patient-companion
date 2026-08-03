@@ -43,7 +43,7 @@ export const pathContent = {
       },
       {
         heading: "Paying for treatment",
-        body: "For larger treatments we offer finance through Medenta, which lets you spread the cost over monthly instalments. It is interest free for up to 12 months, or 9.9% APR over 12 to 36 months, subject to approval. Your dentist will give you a written estimate before any treatment begins, so you always know the cost in advance.",
+        body: "For larger treatments we offer finance through Tabeo, which lets you spread the cost over monthly instalments. It is interest free for up to 12 months, or 9.9% APR over 12 to 36 months, subject to approval. Your dentist will give you a written estimate before any treatment begins, so you always know the cost in advance.",
       },
       {
         heading: "If you need to cancel",

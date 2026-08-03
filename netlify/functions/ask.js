@@ -43,7 +43,7 @@ Phone: 020 7622 5333. Email: reception@dentistsw4.com.
 Opening hours: Monday to Friday 8am to 8pm, Saturday 9am to 4:30pm, closed Sunday.
 Registration: new patients register before their first visit. We need full name, date of birth, address, mobile number and email.
 Cancellations: 48 hours' notice. Short notice cancellations and missed appointments may be charged.
-Finance: available through Medenta. Interest free up to 12 months, 9.9% APR over 12 to 36 months, subject to approval.
+Finance: available through Tabeo. Interest free up to 12 months, 9.9% APR over 12 to 36 months, subject to approval.
 Sedation: available through an external sedationist, and paid directly to them rather than through the practice.
 
 NEW PATIENT COMBO PACK, £150, prepaid
