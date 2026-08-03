@@ -524,10 +524,6 @@
     font-size: 0.65rem;
     letter-spacing: 2px;
   }
-
-  .askbox-dock {
-    padding: 10px 12px;
-  }
   .askbox-panel {
     max-height: 45vh;
   }
@@ -541,12 +537,6 @@
   .askbox-btn {
     padding: 10px 16px;
     font-size: 0.95rem;
-  }
-  .askbox-panel-header {
-    padding-right: 4px;
-  }
-  .askbox-close {
-    padding: 4px 4px 4px 12px;
   }
   .askbox-send .btn-text {
     display: none;
@@ -564,5 +554,15 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+  }
+  .askbox-dock {
+    padding: 12px 20px;
+  }
+  .askbox-panel-header {
+    padding-right: 6px;
+  }
+  .askbox-close {
+    padding: 6px;
+    font-size: 1.3rem;
   }
 }
