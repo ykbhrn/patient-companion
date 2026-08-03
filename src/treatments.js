@@ -135,7 +135,7 @@ export const treatments = {
       },
       {
         heading: "Options available",
-        body: "We offer Damon braces — a fixed system designed to be lower-profile and more comfortable than traditional train-track braces — available with standard or clear brackets. Separately, for adults wanting to correct just the front teeth, we offer Social Six lingual braces, which are fitted behind the teeth so they're completely hidden from view, with treatment typically taking around four to six months.",
+        body: "We offer Damon braces, a fixed system designed to be lower-profile and more comfortable than traditional train-track braces, available with standard or clear brackets. Separately, for adults wanting to correct just the front teeth, we offer Social Six lingual braces, which are fitted behind the teeth so they're completely hidden from view, with treatment typically taking around four to six months.",
       },
       {
         heading: "What to expect",
