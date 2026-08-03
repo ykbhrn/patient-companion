@@ -16,7 +16,7 @@ export default async (req) => {
       .join("\n\n");
 
     const result = await resend.emails.send({
-      from: "Patient Companion <onboarding@resend.dev>",
+      from: "Crescent LodgePatient Companion <onboarding@resend.dev>",
       to: "jakub.horun@mail.com",
       replyTo: patientEmail,
       subject: `Patient enquiry: ${topic}`,

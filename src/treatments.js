@@ -89,29 +89,69 @@ export const treatments = {
   },
 
   invisalign: {
-    name: "Invisalign & Braces",
+    name: "Invisalign",
     category: "Cosmetic & Smile Makeover",
-    tagline: "Clear aligners and braces that straighten teeth discreetly.",
+    tagline: "Clear, removable aligners that straighten teeth discreetly.",
     sections: [
       {
         heading: "What it is",
-        body: "Invisalign straightens teeth using a series of clear, removable aligners instead of fixed metal braces. It's a discreet way to correct crowding, gaps and many bite problems, and is a popular part of a smile makeover. Traditional braces are also available for cases that need them.",
+        body: "Invisalign straightens teeth using a series of clear, removable aligners instead of fixed braces. Each set is custom made for you and moves your teeth gradually into position. Because the aligners are clear and can be taken out, they are a popular choice with adults who would rather not have visible braces.",
+      },
+      {
+        heading: "Is it right for me",
+        body: "Invisalign works well for crowding, gaps and many bite problems. Some cases, particularly more complex ones, are better treated with fixed braces, and your dentist will tell you honestly which is the better fit for your teeth. Success also depends on wearing the aligners consistently, so it suits people happy to keep to that routine.",
       },
       {
         heading: "What to expect",
-        body: "After a free consultation and a digital scan, a custom series of aligners is made for you. You wear each set for about one to two weeks, for roughly 20 to 22 hours a day, removing them only to eat and clean your teeth.",
+        body: "After a free consultation and a digital scan, your custom series of aligners is made for you. You wear each set for around one to two weeks, for roughly 20 to 22 hours a day, taking them out only to eat and to clean your teeth.",
       },
       {
         heading: "Will it hurt",
-        body: "Some people feel mild pressure or tenderness for a day or two when they move to a new set of aligners — this is normal and a sign the treatment is working. It generally settles quickly and most people adjust easily.",
-      },
-      {
-        heading: "Aftercare and retainers",
-        body: "Because aligners are removable, cleaning your teeth is straightforward. Once treatment is complete, a retainer is needed to keep your teeth in their new position.",
+        body: "Most people feel mild pressure or tenderness for a day or two when they move to a new set of aligners. That is normal and a sign the treatment is working. It usually settles quickly and most people adjust easily.",
       },
       {
         heading: "How long it takes",
-        body: "Treatment length depends on how much movement is needed, typically ranging from a few months for minor cases up to around eighteen months for more complex ones. Your dentist will estimate your timeline at the consultation.",
+        body: "Treatment length depends on how much movement is needed. Simpler cases can be finished in a few months, while more complex ones may take around eighteen months. Your dentist will give you an estimated timeline at your consultation.",
+      },
+      {
+        heading: "Aftercare and retainers",
+        body: "Because the aligners come out, brushing and flossing stay straightforward throughout treatment. Once your teeth are in their final position you will need a retainer to hold them there, and most of our Invisalign packages include one.",
+      },
+    ],
+  },
+
+  braces: {
+    name: "Fixed Braces",
+    category: "Cosmetic & Smile Makeover",
+    tagline: "Traditional braces that can correct a wide range of cases.",
+    sections: [
+      {
+        heading: "What it is",
+        body: "Fixed braces use brackets bonded to the teeth and a connecting wire to move them into position. Because they stay in place throughout treatment, they work continuously and can handle a wider range of cases than removable aligners. We use the Damon system, which uses a self-tying bracket designed to be comfortable and efficient.",
+      },
+      {
+        heading: "Braces or Invisalign",
+        body: "Both straighten teeth, and the right choice depends on your case. Fixed braces can correct more complex problems and do not rely on you remembering to wear them, which is why they are often the choice for children and teenagers. Invisalign is removable and far less visible, which many adults prefer. Your orthodontist will assess your teeth and explain honestly which option will give you the better result.",
+      },
+      {
+        heading: "Options available",
+        body: "As well as standard Damon braces, clear brackets are available if you would prefer something less noticeable. For adults wanting to correct just the front teeth, we also offer Lingual Social Six, where the braces are fitted behind the teeth so they are hidden from view.",
+      },
+      {
+        heading: "What to expect",
+        body: "Treatment starts with a consultation and assessment so your orthodontist can plan your case. The braces are then fitted, and you return for regular adjustment appointments through treatment. Your orthodontist will explain how to keep your teeth clean around the brackets and what to expect at each stage.",
+      },
+      {
+        heading: "Will it hurt",
+        body: "Teeth often feel tender for a few days after braces are fitted and again after adjustment appointments. This settles quickly and is a normal sign that the teeth are moving. Soft foods for a day or two usually help.",
+      },
+      {
+        heading: "Braces for children",
+        body: "We also offer interceptive orthodontics for children, which guides growth and development before all the adult teeth are through. Options include trainer appliances, twin blocks and expanders. Your orthodontist will advise whether early treatment would help or whether it is better to wait.",
+      },
+      {
+        heading: "Aftercare and retainers",
+        body: "Keeping teeth clean around fixed braces takes a little more care, and your orthodontist will show you how. Once the braces come off, a retainer is needed to hold your teeth in their new position. Retainers can be removable or fixed behind the teeth.",
       },
     ],
   },
