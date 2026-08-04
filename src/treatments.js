@@ -127,7 +127,7 @@ export const treatments = {
     sections: [
       {
         heading: "What it is",
-        body: "Fixed braces use brackets bonded to the teeth and a connecting wire to move them into position. Because they stay in place throughout treatment, they work continuously and can handle a wider range of cases than removable aligners. We use the Damon system, which uses a self-tying bracket designed to be comfortable and efficient.",
+        body: "Fixed braces use brackets bonded to the teeth and a connecting wire to move them gradually into position. Because they stay in place throughout treatment, they work continuously and can handle a wider range of cases than removable aligners.",
       },
       {
         heading: "Braces or Invisalign",
